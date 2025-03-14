@@ -23,7 +23,10 @@ export default function Claim(){
 
             setLoading(true);
             hasFetched.current = true;
-            const response = await fetch("http://localhost:3001/")
+            const response = await fetch("http://localhost:3001/", {
+                method: "GET", 
+                credentials: "include", 
+              })
             const result = await response.json()
             if (result.remainingMinutes !== undefined && result.remainingSec !== undefined){
                 setdata(result)
